@@ -164,17 +164,17 @@ public static class GameResources
     /// </remarks>
 	private static void ShowLoadingScreen()
 	{
-		_Background = SwinGame.LoadBitmap("SplashBack.png");
-		SwinGame.DrawBitmap(_Background, 0, 0);
-		SwinGame.RefreshScreen();
-		SwinGame.ProcessEvents();
+		//_Background = SwinGame.LoadBitmap("SplashBack.png");
+		//SwinGame.DrawBitmap(_Background, 0, 0);
+		//SwinGame.RefreshScreen();
+		//SwinGame.ProcessEvents();
 
-		_Animation = SwinGame.LoadBitmap("SwinGameAni.jpg");
-		_LoadingFont = SwinGame.LoadFont("arial.ttf", 12);
-		_StartSound = Audio.LoadSoundEffect("SwinGameStart.ogg");
+		//_Animation = SwinGame.LoadBitmap("SwinGameAni.jpg");
+		//_LoadingFont = SwinGame.LoadFont("arial.ttf", 12);
+		//_StartSound = Audio.LoadSoundEffect("SwinGameStart.ogg");
 
-		_LoaderFull = SwinGame.LoadBitmap("loader_full.png");
-		_LoaderEmpty = SwinGame.LoadBitmap("loader_empty.png");
+		//_LoaderFull = SwinGame.LoadBitmap("loader_full.png");
+		//_LoaderEmpty = SwinGame.LoadBitmap("loader_empty.png");
 
 		PlaySwinGameIntro();
 	}
@@ -187,26 +187,22 @@ public static class GameResources
     /// </remarks>
 	private static void PlaySwinGameIntro()
 	{
-		const int ANI_X = 143;
-		const int ANI_Y = 134;
-		const int ANI_W = 546;
-		const int ANI_H = 327;
-		const int ANI_V_CELL_COUNT = 6;
-		const int ANI_CELL_COUNT = 11;
+        //const int ANI_CELL_COUNT = 11;
+        //Audio.PlaySoundEffect(_StartSound);
+        //SwinGame.Delay(200);
 
-		Audio.PlaySoundEffect(_StartSound);
-		SwinGame.Delay(200);
+        //int i = 0;
+        //for (i = 0; i <= ANI_CELL_COUNT - 1; i++)
+        //{
+        //    SwinGame.DrawBitmap(_Background, 0, 0);
+        //    SwinGame.Delay(20);
+        //    SwinGame.RefreshScreen();
+        //    SwinGame.ProcessEvents();
+        //}
 
-		int i = 0;
-		for (i = 0; i <= ANI_CELL_COUNT - 1; i++) {
-			SwinGame.DrawBitmap(_Background, 0, 0);
-			//SwinGame.DrawBitmapPart(_Animation, (i / ANI_V_CELL_COUNT) * ANI_W, (i % ANI_V_CELL_COUNT) * ANI_H, ANI_W, ANI_H, ANI_X, ANI_Y);
-			SwinGame.Delay(20);
-			SwinGame.RefreshScreen();
-			SwinGame.ProcessEvents();
-		}
+        SwinGame.ShowSwinGameSplashScreen();
 
-		SwinGame.Delay(1500);
+        //SwinGame.Delay(1500);
 
 	}
 
@@ -224,7 +220,6 @@ public static class GameResources
 
 		fullW = 260 * number / STEPS;
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
-		//SwinGame.DrawBitmapPart(_LoaderFull, 0, 0, fullW, 66, BG_X, BG_Y);
 
 		Rectangle toDraw = new Rectangle ();
         toDraw.X = TX;
@@ -233,8 +228,6 @@ public static class GameResources
         toDraw.Height = TH;
 
         SwinGame.DrawText (message, Color.White, Color.Transparent,_LoadingFont,FontAlignment.AlignCenter,toDraw);
-		//SwinGame.DrawTextLines(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY, TW, TH);
-
 		SwinGame.RefreshScreen();
 		SwinGame.ProcessEvents();
 	}
@@ -276,7 +269,6 @@ public static class GameResources
 	private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
 	{
         Bitmap bitmap = SwinGame.LoadBitmap (SwinGame.PathToResource (fileName,ResourceKind.BitmapResource));
-		//Bitmap bitmap = SwinGame.LoadBitmap (SwinGame.PathToResource (fileName, ResourceKind.BitmapResource), true, transColor);
 		_Images.Add(imageName, bitmap);
 	}
 
@@ -311,9 +303,9 @@ public static class GameResources
 
 	private static void FreeSounds()
 	{
-        // Isuru: Memory Access Violation here
+        //Isuru: Memory Access Violation here
         return;
-		foreach (SoundEffect obj in _Sounds.Values) {
+        foreach (SoundEffect obj in _Sounds.Values) {
 			Audio.FreeSoundEffect(obj);
 		}
 	}
