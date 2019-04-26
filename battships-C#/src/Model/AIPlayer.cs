@@ -129,16 +129,17 @@ public abstract class AIPlayer : Player
 	private void Delay()
 	{
 		int i = 0;
-		for (i = 0; i <= 150; i++) {
-			//Dont delay if window is closed
-			if (SwinGame.WindowCloseRequested())
-				return;
+        for (i = 0; i <= 150; i++)
+        {
+            //Dont delay if window is closed
+            if (SwinGame.WindowCloseRequested())
+                return;
 
-			SwinGame.Delay(5);
-			SwinGame.ProcessEvents();
-			SwinGame.RefreshScreen();
-		}
-	}
+            SwinGame.Delay(5);
+            SwinGame.ProcessEvents();
+            SwinGame.RefreshScreen();
+        }
+    }
 }
 
 //=======================================================
