@@ -21,6 +21,11 @@ public class AttackResult
 	/// </summary>
 	/// <value>The result of the attack</value>
 	/// <returns>The result of the attack</returns>
+	/*
+	Function name : Value
+	parameters : null
+	returns : ResultofAttack
+	*/
 	public ResultOfAttack Value {
 		get { return _Value; }
 	}
@@ -30,6 +35,12 @@ public class AttackResult
 	/// </summary>
 	/// <value>The ship, if any, involved in this result</value>
 	/// <returns>The ship, if any, involved in this result</returns>
+	/*
+	Function name : Ship
+	parameters : null
+	returns : Ship
+	*/
+	
 	public Ship Ship {
 		get { return _Ship; }
 	}
@@ -40,6 +51,13 @@ public class AttackResult
 	/// <value>A textual description of the result.</value>
 	/// <returns>A textual description of the result.</returns>
 	/// <remarks>A textual description of the result.</remarks>
+	
+	/*
+	Function name : Text
+	parameters : null
+	returns : string
+	*/
+	
 	public string Text {
 		get { return _Text; }
 	}
@@ -47,6 +65,11 @@ public class AttackResult
 	/// <summary>
 	/// The row where the attack occurred
 	/// </summary>
+	/*
+	Function name : Row
+	parameters : null
+	returns : int
+	*/
 	public int Row {
 		get { return _Row; }
 	}
@@ -54,6 +77,7 @@ public class AttackResult
 	/// <summary>
 	/// The column where the attack occurred
 	/// </summary>
+	
 	public int Column {
 		get { return _Column; }
 	}
@@ -62,6 +86,11 @@ public class AttackResult
 	/// Set the _Value to the PossibleAttack value
 	/// </summary>
 	/// <param name="value">either hit, miss, destroyed, shotalready</param>
+	/*
+	Function name : AttackResult
+	parameters : ResultOfAttack value, string text, int row, int column
+	returns : 
+	*/
 	public AttackResult(ResultOfAttack value, string text, int row, int column)
 	{
 		_Value = value;
@@ -85,6 +114,7 @@ public class AttackResult
 	/// Displays the textual information about the attack
 	/// </summary>
 	/// <returns>The textual information about the attack</returns>
+	
 	public override string ToString()
 	{
 		if (_Ship == null) {
